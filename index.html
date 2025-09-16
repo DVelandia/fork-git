@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas Universitarias</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Mi Agenda Universitaria</h1>
+            <p>Organiza tus tareas académicas de manera eficiente</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number" id="totalTasks">0</div>
+                    <div class="stat-label">Total</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="pendingTasks">0</div>
+                    <div class="stat-label">Pendientes</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="completedTasks">0</div>
+                    <div class="stat-label">Completadas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="overdueTasks">0</div>
+                    <div class="stat-label">Atrasadas</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <form class="task-form" id="taskForm">
+                <div class="form-group">
+                    <label for="taskTitle">Título de la tarea</label>
+                    <input type="text" id="taskTitle" required placeholder="Ej: Ensayo de Historia">
+                </div>
+
+                <div class="form-group">
+                    <label for="taskSubject">Materia</label>
+                    <select id="taskSubject" required>
+                        <option value="">Selecciona una materia</option>
+                        <option value="Matemáticas">Matemáticas</option>
+                        <option value="Historia">Historia</option>
+                        <option value="Biología">Biología</option>
+                        <option value="Química">Química</option>
+                        <option value="Literatura">Literatura</option>
+                        <option value="Inglés">Inglés</option>
+                        <option value="Programación">Programación</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDate">Fecha de entrega</label>
+                    <input type="date" id="taskDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskPriority">Prioridad</label>
+                    <select id="taskPriority" required>
+                        <option value="baja">Baja</option>
+                        <option value="media">Media</option>
+                        <option value="alta">Alta</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="taskDescription">Descripción</label>
+                    <textarea id="taskDescription" placeholder="Detalles adicionales sobre la tarea..."></textarea>
+                </div>
+
+                <button type="submit" class="add-btn">➕ Agregar Tarea</button>
+            </form>
+        </div>
+
+        <div class="tasks-section">
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="pending">Pendientes</button>
+                <button class="filter-btn" data-filter="completed">Completadas</button>
+                <button class="filter-btn" data-filter="overdue">Atrasadas</button>
+                <button class="filter-btn" data-filter="alta">Alta Prioridad</button>
+            </div>
+
+            <div class="task-list" id="taskList">
+                <div class="empty-state">
+                    <div class="empty-icon">📝</div>
+                    <h3>No hay tareas aún</h3>
+                    <p>Comienza agregando tu primera tarea universitaria</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
